@@ -2,13 +2,12 @@ import { config } from "dotenv"
 import cors from "cors"
 import express, { Request, Response } from "express"
 import crypto from "crypto"
-import userRouter from "../routes/user.route"
-
+import router from "../routes/index"
 config()
 
 const app = express()
 app.use(cors())
-app.use("/users", userRouter)
+app.use("/api", router)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
